@@ -5,9 +5,8 @@ import data from '../Libros/Json/data.json';
 
 
 const LibrosLista = () => {
-  
   const [api, setApi] = useState([])
-    const [json, setJson] = useState(data)
+  const [json, setJson] = useState(data)
 
   useEffect(() => {
     fetch('https://www.googleapis.com/books/v1/volumes?q=Harry%20Potter')
@@ -21,36 +20,40 @@ const LibrosLista = () => {
       });
   }, [])
     
-  // Llamar a la función fetchApi en el montaje inicial del componente
-
-
   return (
     <>
-  <ul style={{ margin: 0, padding: '3rem' }}>
-    {api.length > 0 && (
-      <>
-            <div style={{ display: 'flex', flexDirection: 'row', flexWrap:'wrap', justifyContent:'space-evenly', padding:'3rem'}} className='backgroundBooks'>
+      <ul style={{ margin: 0, padding: '3rem' }}>
+        {api.length > 0 && (
+          <>
+            <div style={{ display: 'flex', flexDirection: 'row', flexWrap:'wrap', justifyContent:'space-evenly', padding:'3rem', gap:'4rem'}} className='backgroundBooks'>
+              {api.map((item, index) => {
+                const thumbnail = item?.volumeInfo?.imageLinks?.thumbnail;
+                return (
+                  <div key={item.id} style={{ display: 'flex', justifyContent: 'center', marginBottom: '1rem',flexWrap:'wrap' }} className='aumentoImg'>
+                    <div style={{paddingBottom:'2rem', paddingLeft:'3rem'}} >
+                      {thumbnail ? (
+                        <>
+                        <img src={thumbnail} alt={`Imagen ${index}`} style={{ width: '250px', height: 'auto', marginRight: '2rem',borderRadius:'0.5rem', gap:'1rem'}} />
+                        <li to={`/api/${index}`} style={{ gap: '2rem', width:'10rem', display:'flex',justifyContent:'center', flexDirection:'column' }} className='nameBooks'>
 
-            {api.map((item, index) => (
-              <div key={item.id} style={{ display: 'flex', justifyContent: 'center', marginBottom: '1rem',flexWrap:'wrap'}} className='aumentoImg'>
-                <div style={{paddingBottom:'2rem', paddingLeft:'3rem'}} >
-
-                  <img src={item.volumeInfo.imageLinks.thumbnail} alt={`Imagen ${index}`} style={{ width: '200px', height: 'auto', marginRight: '1rem',borderRadius:'0.5rem' }} />
-                
-                <li to={`/api/${index}`} style={{ gap: '2rem', width:'10rem' }} className='nameBooks'>
-                  <h6 style={{fontFamily:'revert-layer',width:'5rem',display:'flex', justifyContent:'flex-start'}}>{item.volumeInfo.title.toUpperCase()}</h6>
-                  <h6 >{json[index].price} </h6>
-                </li>
-                </div>
-
-              </div>
-            ))
-        } </div>
-      </>
-    )}
-  </ul>
- 
-
+                          <h6 style={{fontFamily: 'Cinzel Decorative', fontWeight:'bold',width:'5rem',display:'flex', justifyContent:'flex-start'}}>{item.volumeInfo.title.toUpperCase()}</h6>
+                          <h6 style={{fontFamily: 'Cinzel Decorative', fontWeight:'bold'}}>{json[index].price} </h6>
+                        </li>
+                        
+                        </>
+                      ) : (
+                        <div/>
+                      )}
+                      
+                      
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </>
+        )}
+      </ul>
     </>
   )
 }

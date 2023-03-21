@@ -11,10 +11,10 @@ const Main = () => {
             
             <header >
               <div style={{paddingTop:'1rem'}}>
-                <h1 style={{display:'flex',justifyContent:'center', padding:'1rem', fontFamily:'cursive'}}> BIENVENIDO A HOWARTS</h1>
+                <h1 style={{display:'flex',justifyContent:'center', padding:'1rem', fontFamily: 'Cinzel Decorative', fontWeight:'bold'}}> BIENVENIDO A HOWARTS</h1>
                 <ImgMain/>
-                <h4 style={{display:'flex',justifyContent:'center', padding:'1rem', fontFamily:'cursive',paddingTop:'3rem'}}> Encotrarás TODOS los libros de la saga a tu disposición</h4>
-                <h5 style={{display:'flex',justifyContent:'center', padding:'1rem', fontFamily:'cursive'}}>Disfrutalos!</h5>
+                <h4 style={{display:'flex',justifyContent:'center', padding:'1rem', fontFamily: 'Cinzel Decorative', fontWeight:'bold',paddingTop:'3rem'}}> Encotrarás TODOS los libros de la saga a tu disposición</h4>
+                <h5 style={{display:'flex',justifyContent:'center', padding:'1rem', fontFamily: 'Cinzel Decorative', fontWeight:'bold'}}>Disfrutalos!</h5>
 
 
               </div>

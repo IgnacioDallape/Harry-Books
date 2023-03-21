@@ -12,7 +12,6 @@ import Nosotros from './Components/Nosotros/Nosotros';
 import HarryPotter from './Components/Main/Personajes/HarryPotter';
 import Hermione from './Components/Main/Personajes/Hermione';
 import Ron from './Components/Main/Personajes/Ron';
-import Prueba from './Components/Prueba';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -28,14 +27,14 @@ root.render(
           <Route exact path='/hermione' element={<Hermione/>} />
           <Route exact path='/ron' element={<Ron/>} />
 
-
+        
 
           
 
         </Routes>
       <Footer/>
-    </BrowserRouter> 
-    {/* <Prueba/> */}
+    </BrowserRouter>  
+    
   </React.StrictMode>
 );
 
