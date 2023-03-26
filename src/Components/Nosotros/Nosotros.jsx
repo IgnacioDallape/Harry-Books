@@ -13,7 +13,7 @@ const Nosotros = () => {
         </div>
 
 
-        <div style={{display:'flex',justifyContent:'center', paddingTop:'2rem', width:'50%'}} className='container'>
+        <div style={{display:'flex',justifyContent:'center', paddingTop:'2rem', paddingBottom:'5rem', width:'50%'}} className='container'>
             <h6 className='container' style={{fontFamily: 'Cinzel Decorative', fontWeight:'bold'}}>La verdad que un simple fan de la saga de películas, que la sigue desde que se estrenó, me he leído todos los libros y quiero compartir este gran mundo con gente que se que puede llegar a disfrutarlo tanto como yo.</h6>
 
         </div>

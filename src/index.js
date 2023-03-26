@@ -15,6 +15,8 @@ import Ron from './Components/Main/Personajes/Ron';
 import CartProvider from './Context/CartContext';
 
 
+
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
@@ -22,6 +24,7 @@ root.render(
 
       <BrowserRouter>
         <NavBar/>
+        
           <Routes>
             <Route exact path='/' element={<Main/>} />
             <Route exact path='/LibrosLista' element={<LibrosLista/>} />

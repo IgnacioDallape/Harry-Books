@@ -1,33 +1,16 @@
-.button1{
+
+.button{
   text-decoration: none;
   color: white;
   font-size: 1.2rem;
 }
 
-.button1:hover {
-  background-color: none;
-  color: rgb(212, 23, 23);    }
-.button2{
-  text-decoration: none;
-  color: white;
-  font-size: 1.2rem;
-}
-
-.button2:hover {
+.button:hover {
   background-color: none;
   color:yellow;
 }
 
-.button3{
-  text-decoration: none;
-  color: white;
-  font-size: 1.2rem;
-}
 
-.button3:hover {
-  background-color: none;
-  color: rgb(212, 23, 23);
-}
 
 .aumentoImg {
   transition: transform 0.2s ease-in-out;
