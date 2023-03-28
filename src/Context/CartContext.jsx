@@ -13,7 +13,6 @@ export const CartContext = createContext({
     
 }
 )
-
 const CartProvider = (props) => {
     // creamos estado que almacene al carrito
     const [cart, setCart] = useState([])
@@ -26,11 +25,8 @@ const CartProvider = (props) => {
 
     // 2- verificar si esta en el carrito
     const isInCart =  (id) => {
-        return cart.find((items) => items.id == id ) ? true : false
-        
+        return cart.find((items) => items.id == id ) ? true : false       
     }
-    
-
     // 3- añadir un producto al carrito 
     const addToCart =  (item,quantity) => {     
         if (isInCart(item.id)) {
@@ -43,17 +39,13 @@ const CartProvider = (props) => {
             
         } else{
             setCart([...cart, { ...item, quantity }]); 
-        }
-        
-        
+        }        
     }
     // 4- remover un producto del carrit
     const removeFromCart =  (id) => {
         const newCart = newCart.filter((item) => item.id !== id )
         setCart(newCart)
     }
-
-
     // 5- obtener la cantidad total de elementos de productos
     const getTotalQuantity =  () => {
         let q = 0
@@ -62,24 +54,17 @@ const CartProvider = (props) => {
         });
         return q
     }
-
-
     // 6- obtener el total a pagar 
     const getTotal = () => {
         const total = cart.reduce((accumulator, item) => {
           return accumulator + (item.quantity * item.price)
         }, 0);
         return total;        
-        
-        
     }
 return(
     <CartContext.Provider value={{cart,clearCart,isInCart,addToCart,removeFromCart,getTotalQuantity,getTotal}}>
         {props.children}
     </CartContext.Provider>
-)
-    
-
-}
+)}
 
 export default CartProvider

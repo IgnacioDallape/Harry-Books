@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
 import './index.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Main from './Components/Main/Main';
@@ -16,8 +15,6 @@ import CartProvider from './Context/CartContext';
 //firebase
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
-
-
 const firebaseConfig = {
   apiKey: "AIzaSyCuN5IKFpDDJ8vt43P6IPqnKquPa7H-OYY",
   authDomain: "harrypotterappdallape.firebaseapp.com",
@@ -27,21 +24,15 @@ const firebaseConfig = {
   appId: "1:786597376012:web:954e814bdd99937faffe29",
   measurementId: "G-EWWZ8FL2GE"
 };
-
-// Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
-
-
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <CartProvider>
-
       <BrowserRouter>
-        <NavBar/>
-        
+        <NavBar/>       
           <Routes>
             <Route exact path='/' element={<Main/>} />
             <Route exact path='/LibrosLista' element={<LibrosLista/>} />
@@ -49,18 +40,10 @@ root.render(
             <Route exact path='/harrypotter' element={<HarryPotter/>} />
             <Route exact path='/hermione' element={<Hermione/>} />
             <Route exact path='/ron' element={<Ron/>} />
-
-          
-
-            
-
           </Routes>
         <Footer/>
-      </BrowserRouter>  
-    
-    </CartProvider>
-
-    
+      </BrowserRouter>     
+    </CartProvider>   
   </React.StrictMode>
 );
 

@@ -2,7 +2,6 @@ import { getFirestore, getDocs, doc, collection } from 'firebase/firestore';
 import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { CartContext } from '../../Context/CartContext';
-import data from '../Libros/Json/data.json';
 
 const firebaseConfig = { /*...configuración de Firebase...*/ };
 
