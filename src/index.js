@@ -13,7 +13,24 @@ import HarryPotter from './Components/Main/Personajes/HarryPotter';
 import Hermione from './Components/Main/Personajes/Hermione';
 import Ron from './Components/Main/Personajes/Ron';
 import CartProvider from './Context/CartContext';
+//firebase
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
 
+
+const firebaseConfig = {
+  apiKey: "AIzaSyCuN5IKFpDDJ8vt43P6IPqnKquPa7H-OYY",
+  authDomain: "harrypotterappdallape.firebaseapp.com",
+  projectId: "harrypotterappdallape",
+  storageBucket: "harrypotterappdallape.appspot.com",
+  messagingSenderId: "786597376012",
+  appId: "1:786597376012:web:954e814bdd99937faffe29",
+  measurementId: "G-EWWZ8FL2GE"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
 
 
 
@@ -42,6 +59,8 @@ root.render(
       </BrowserRouter>  
     
     </CartProvider>
+
+    
   </React.StrictMode>
 );
 

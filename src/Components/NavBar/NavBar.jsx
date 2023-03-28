@@ -83,7 +83,7 @@ const NavBar = () => {
                         
                         cart.map((item) => (
                             <div style={{color:'white'}}>
-                {item.name} - {item.quantity} Unidades - Precio individual: {item.price}
+                {item.title} - {item.quantity} Unidades - Precio individual: {item.price}
                 <br />
                 -----------------------------------------
                 <br />
