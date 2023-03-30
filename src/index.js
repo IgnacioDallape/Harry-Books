@@ -15,6 +15,7 @@ import CartProvider from './Context/CartContext';
 //firebase
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
+import Compra from './Components/NavBar/ConfirmacionCompra/Compra';
 const firebaseConfig = {
   apiKey: "AIzaSyCuN5IKFpDDJ8vt43P6IPqnKquPa7H-OYY",
   authDomain: "harrypotterappdallape.firebaseapp.com",
@@ -40,10 +41,12 @@ root.render(
             <Route exact path='/harrypotter' element={<HarryPotter/>} />
             <Route exact path='/hermione' element={<Hermione/>} />
             <Route exact path='/ron' element={<Ron/>} />
+            <Route exact path='/compra' element={<Compra/>} />
           </Routes>
         <Footer/>
       </BrowserRouter>     
-    </CartProvider>   
+    </CartProvider>
+    
   </React.StrictMode>
 );
 

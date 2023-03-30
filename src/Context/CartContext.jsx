@@ -9,14 +9,25 @@ export const CartContext = createContext({
     addToCart: () => {},
     removeFromCart: () => {},
     getTotalQuantity: () => {},
-    getTotal: () => {}
-    
+    getTotal: () => {},
+    name: [],
+    lastname: [],
+    email:[],
+    handleChangeName: () => {},
+    handleChangeLastname: () => {},
+    handleChangeMail: () => {},
+    openModal: () => {},
 }
 )
 const CartProvider = (props) => {
     // creamos estado que almacene al carrito
     const [cart, setCart] = useState([])
     const [precioTotal, setprecioTotal] = useState(0)
+    const [info, setInfo] = useState([])
+    const [modal, setModal] = useState(false);
+    const [name, setName] = useState()
+    const [lastname, setLastname] = useState()
+    const [email, setEmail] = useState()
 
     // 1- vaciar carrito
     const clearCart =  () => {
@@ -61,6 +72,24 @@ const CartProvider = (props) => {
         }, 0);
         return total;        
     }
+
+    //7- Abrir el modal para que cargue su info
+    const openModal = (boolean) => {
+        setModal(boolean);
+        
+    }
+
+    // 8-Obtener el mail, nombre y edad del usuario
+    const handleChangeName = (e) => {
+        setName(e.target.value)
+    }
+    const handleChangeLastname = (e) => {
+        setLastname(e.target.value)
+    }
+    const handleChangeMail = (e) => {
+        setEmail(e.target.value)
+    }
+
 return(
     <CartContext.Provider value={{cart,clearCart,isInCart,addToCart,removeFromCart,getTotalQuantity,getTotal}}>
         {props.children}
