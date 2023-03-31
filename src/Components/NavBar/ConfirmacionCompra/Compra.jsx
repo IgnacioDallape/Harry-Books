@@ -1,3 +1,4 @@
+import { addDoc, collection, getFirestore } from 'firebase/firestore';
 import React, {useContext, useState} from 'react'
 import { Link } from 'react-router-dom';
 import { CartContext } from '../../../Context/CartContext';
@@ -25,6 +26,24 @@ const handleChangeMail = (e) => {
 }
 
 const handleConfirm = (e)=>{
+    e.preventDefault()
+
+    const db = getFirestore()
+    const orderCollection = collection(db,'orders')
+    console.log(orderCollection)
+
+    const order = {
+        buyer:{
+            nombre:name,
+            apellido:lastname,
+            mail:email,
+        },
+
+        items: cart,
+        total: getTotal()
+    }
+
+    addDoc(orderCollection,order)
     
 }
 
@@ -86,17 +105,17 @@ return (
 
                         <div style={{display:'flex',justifyContent:'center', fontFamily: 'Cinzel Decorative'}}>
                         
-                            <label htmlFor="name" style={{fontSize:'1rem', color:'white'}}>Nombre</label>
+                            <label htmlFor="name" style={{fontSize:'1rem', color:'white',paddingRight:'1rem'}}>Nombre</label>
                             <input type="text" name="name"  onChange={handleChangeName} value={name} required style={{fontSize:'0.7rem', fontWeight:'bold'}}  />
                         </div>
                         <br />
                         <div style={{display:'flex',justifyContent:'center', fontFamily: 'Cinzel Decorative'}}>
-                            <label htmlFor="lastname" style={{fontSize:'1rem', color:'white'}}>Apellido</label>
+                            <label htmlFor="lastname" style={{fontSize:'1rem', color:'white', paddingRight:'1rem'}}>Apellido</label>
                             <input type="text" name="lastname"  onChange={handleChangeLastname} value={lastname} required style={{fontSize:'0.7rem', fontWeight:'bold'}} />
                         </div>
                         <br />
                         <div style={{display:'flex',justifyContent:'center', paddingLeft:'1rem', fontFamily: 'Cinzel Decorative'}}>
-                            <label htmlFor="mail" style={{fontSize:'1rem', color:'white'}}>E-mail</label>
+                            <label htmlFor="mail" style={{fontSize:'1rem', color:'white',paddingRight:'1.1rem'}}>E-mail</label>
                             <input type="email" name="mail"  onChange={handleChangeMail} value={email} required style={{fontSize:'0.7rem', fontWeight:'bold'}} />
                         </div>
                         </div>

@@ -18,6 +18,7 @@ const LibrosLista = () => {
   }, []);
   
   return (
+    
     <div style={{display:'flex', gap:'8rem',flexWrap:'wrap', paddingTop:'4rem', justifyContent:'center'}}>
       {items && items.map((item) => {
         return (
