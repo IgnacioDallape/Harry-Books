@@ -2,7 +2,9 @@ import { addDoc, collection, getFirestore } from 'firebase/firestore';
 import React, {useContext, useState} from 'react'
 import { Link } from 'react-router-dom';
 import { CartContext } from '../../../Context/CartContext';
-import Ron from '../../Main/Personajes/Ron';
+import Swal from 'sweetalert2';
+import 'sweetalert2/dist/sweetalert2.css';
+
 
 const Compra = () => {
     const {cart,clearCart,getTotalQuantity, getTotal} = useContext(CartContext)
@@ -42,8 +44,14 @@ const handleConfirm = (e)=>{
         items: cart,
         total: getTotal()
     }
-
+    
     addDoc(orderCollection,order)
+    clearCart()
+    setName('')
+    setLastname('')
+    setEmail('')
+    Swal.fire('Compra confirmada :)!')
+
     
 }
 
@@ -53,6 +61,7 @@ const handleCancel = (e) => {
     setEmail('')
     
 }
+
 
 
 return (
@@ -130,10 +139,11 @@ return (
                                         Cancelar
                                     </button>
                                 </Link>
-
-                                <button type="submit" style={{border:'2px black solid', borderRadius:'0.3rem', color:'#5C2B29'}} className='aumentoImg' onClick={handleConfirm}>
-                                    Confirmar
-                                </button>
+                                        
+                                    <button type="submit" style={{border:'2px black solid', borderRadius:'0.3rem', color:'#5C2B29'}} className='aumentoImg' onClick={handleConfirm}>
+                                        Confirmar
+                                    </button>
+                                
                             </div>
                         </div>
                         

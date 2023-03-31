@@ -27,7 +27,7 @@ const LibrosLista = () => {
             <div style={{ gap: '2rem', width: '10rem', display: 'flex', justifyContent: 'center', flexDirection: 'column',paddingTop:'1rem' }} className='nameBooks'>
               <h6 style={{ fontFamily: 'Cinzel Decorative', fontWeight: 'bold', width: '5rem', display: 'flex', justifyContent: 'flex-start' }}>{item.title.toUpperCase()}</h6>
               <h6 style={{ fontFamily: 'Cinzel Decorative', fontWeight: 'bold' }}>$ {item.price} </h6>
-              <button onClick={() => addToCart(item, 1)} style={{ borderRadius: '1rem', backgroundColor: '#5C2B29', border: '2px solid #8B0000', color: 'yellow' }}> Agregar al carrito</button>
+              <button onClick={() => addToCart(item, 1)} style={{ borderRadius: '1rem', backgroundColor: '#5C2B29', border: '2px solid #8B0000', color: 'yellow' }} className='aumentoImg'> Agregar al carrito</button>
             </div>
           </div>
         );
