@@ -52,7 +52,6 @@ const NavBar = () => {
             </div>            
         </div>
 
-//CARRITO
     
         <div   onMouseOver={handleMouseEnter} onMouseLeave={handleMouseLeave} style={{display:'flex',flexDirection:'column',justifyContent:'center',position:'absolute', right:'1rem', top:'2rem', width:'18rem', cursor:'pointer'}} >
         
